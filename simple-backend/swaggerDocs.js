@@ -11,9 +11,12 @@ const swaggerDocs = {
     },
     host: "localhost:3000",
     basePath: "/games",
+    basePath: "/friends",
     tags: [{
         name: "Games",
         description: "games in the database",
+        name: "Friends",
+        description: "friends in the database",
     }, ],
     consumes: ["application/json"],
     produces: ["application/json"],
@@ -73,14 +76,14 @@ const swaggerDocs = {
                     in: "body",
                     description: "Id of the friend searched for",
                     schema: {
-                        $ref: "#/definitions/Friend"
+                        $ref: "#/definitions/Friend",
                     },
                 }, ],
                 responses: {
                     200: {
                         description: "OK",
                         schema: {
-                            $ref: "#/defintions/Friend"
+                            $ref: "#/defintions/Friend",
                         },
                     },
                 },
@@ -110,8 +113,23 @@ const swaggerDocs = {
             get: {
                 tags: ["Friends"],
                 summary: "Get a specific friend by nickname",
-                parameters
-            }
+                parameters: [{
+                    name: "nickname",
+                    in: "path",
+                    description: "Nickname of the friend searched for",
+                    schema: {
+                        $ref: "#/defintions/Friend",
+                    },
+                }, ],
+                responses: {
+                    200: {
+                        description: "OK",
+                        schema: {
+                            $ref: "#/defintions/Friend",
+                        },
+                    },
+                },
+            },
         },
         "/add": {
             post: {
@@ -130,6 +148,26 @@ const swaggerDocs = {
                         description: "Created",
                         schema: {
                             $ref: "#/definitions/Game",
+                        },
+                    },
+                },
+            },
+            post: {
+                tags: ["Friends"],
+                summary: "Add a new friend",
+                parameters: [{
+                    name: "friend",
+                    in: "body",
+                    description: "friend to be added",
+                    schema: {
+                        $ref: "#/definitions/Friend",
+                    },
+                }, ],
+                responses: {
+                    201: {
+                        description: "Created",
+                        schema: {
+                            $ref: "#/defintions/Friend",
                         },
                     },
                 },
@@ -162,8 +200,8 @@ const swaggerDocs = {
                 nickname: {
                     type: "string",
                 },
-            }
-        }
+            },
+        },
     },
 };
 

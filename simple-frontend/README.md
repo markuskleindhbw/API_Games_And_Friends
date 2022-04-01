@@ -1,19 +1,18 @@
-# Example Book Webpage 📚 📚
+API zur Erfassung von momentanen kostenlosen und reduzierten Spielen auf der Plattform Steam
 
-Uses GET /books from backend service to display all currently saved books on a plain webpage
+Name der App: Scoured
 
-### Run `npm run start` to start frontend server
+Collection:
 
-## Files & Folders
+Collection ./Aktuell
+Collection ./Bald_Verfügbar
+Collection ./Freunde
 
-- **./public/index.html**: contains html page with root div
-- **index.js**: React app entry point
-- **App.js**: contains a simple React function that displays API data
-- **RestClient.js**: contains a fetcher function to get backend data
-- **package.json**: contains all app dependencies, as well as scripts and meta
-  information
+Aufgabe
+Beschreib ein konkretes Anwendungsszenario für den entwickelten Service und schildert (in wenigen Worten) eine mögliche Gesamt Architektur in welcher sich dieser befinden könnte
 
-## Docs for further reading
+Welche Probleme können entstehen, wenn der entwickelte Service von mehreren Parteien verwendet wird? Beschreibt zwei Probleme sowie mögliche Lösungen.
 
-- **React.js**: https://reactjs.org/docs/hello-world.html
-- **node fetch**: https://www.npmjs.com/package/node-fetch
+Was ist abseits der reinen Programmierung für die Produktivsetzung des entwickelten Services zu beachten? Nenne mindestens zwei Aspekte und führe diese in ein paar Sätzen aus
+
+MERKE: Nur auf unsere Anwendung schauen
