@@ -25,9 +25,14 @@ export const addFriend = async(req, res) => {
         nickname: req.body.nickname,
     });
 
-    friend.save(friend).then((friend) => res.status(201).send(friend));
+    friend.save(friend).then((todo) => res.status(201).send(todo));
 };
 
+export const deleteFriend = async(req, res) => {
+    
+     Friend.findByIdAndDelete(req.params.id);
+     res.status(200).send(`Deleted in friend collection`);
+};
 // attached as second param in a route
 export const newFriendValidators = [
     check("nickname").notEmpty().withMessage("Nickname field required"),

@@ -1,37 +1,18 @@
-# Example REST API Book Service 📚 📚 
+API zur Erfassung von momentanen kostenlosen und reduzierten Spielen auf der Plattform Steam
 
-### Run `npm run d-up` to start server and MongoDB
+Name der App: Scoured
 
-## API calls
+Collection:
 
-- GET /books
-- GET /books/{id}
-- GET /books/search?name={name}
-- POST /books
+Collection ./Aktuell
+Collection ./Bald_Verfügbar
+Collection ./Freunde
 
-<span style="color:blue"> -> Go to localhost:300/api for documentation </span>
+Aufgabe
+Beschreib ein konkretes Anwendungsszenario für den entwickelten Service und schildert (in wenigen Worten) eine mögliche Gesamt Architektur in welcher sich dieser befinden könnte
 
+Welche Probleme können entstehen, wenn der entwickelte Service von mehreren Parteien verwendet wird? Beschreibt zwei Probleme sowie mögliche Lösungen.
 
-## Files & Folders
+Was ist abseits der reinen Programmierung für die Produktivsetzung des entwickelten Services zu beachten? Nenne mindestens zwei Aspekte und führe diese in ein paar Sätzen aus
 
-#### API
-
-- **index.js**: app entry point
-- **./routes**: contains all available routes
-- **./controllers**: contains functions for each route as well as validators
-- **./models**: contains the data model to be persisted in MongoDB
-- **package.json**: contains all app dependencies, as well as scripts and meta information
-
-#### Docker
-
-- **Dockerfile**: Docker Image definition for the backend
-- **.dockerignore**: Files to be ignored by docker
-
-#### Swagger
-
-- **swaggerDocs.js** contains OpenAPI specification
-
-## Docs for further reading
-
-- **Express.js**: https://expressjs.com
-- **Express validators**: https://express-validator.github.io/docs/custom-error-messages.html
+MERKE: Nur auf unsere Anwendung schauen

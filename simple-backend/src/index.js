@@ -3,20 +3,22 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import swaggerUi from "swagger-ui-express";
 
-import gameRoutes from "./routes/gameRoutes.js";
+import freeGameRoutes from "./routes/freeGameRoutes.js";
 import friendRoutes from "./routes/friendRoutes.js";
+import soonGameRoutes from "./routes/soonGameRoutes.js";
 import swaggerDocs from "../swaggerDocs.js";
 
 // complete application is here
 const app = express();
-const port = 3000;
+const port = 4000;
 
 // app uses json
 app.use(bodyParser.json());
 
-// only book routes and documentation is valid
+// only games routes and documentation is valid
 // everything else throws a 404
-app.use("/games", gameRoutes);
+app.use("/freegames", freeGameRoutes);
+app.use("/soongames", soonGameRoutes);
 app.use("/friends", friendRoutes);
 app.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.all("*", (req, res) => res.sendStatus(404));
