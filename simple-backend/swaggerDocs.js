@@ -458,7 +458,7 @@ const swaggerDocs = {
                     },
                 }, ],
                 responses: {
-                    200: { //Welcher Statuscode?
+                    200: {
                         description: "Ok",
                         schema: {
                             $ref: "#/definitions/Friends",

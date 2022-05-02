@@ -38,8 +38,7 @@ export const editFreeGame = async(req, res) => {
     res.status(200).send(`Edited ${ freeGame.title} in free game collection`);
 };
 
-export const deleteFreeGame = async(req, res) => {
-    
+
 export const deleteFreeGame = async (req, res) => {
     await FreeGame.findByIdAndDelete(req.params.id);
     res.status(200).send(`Deleted in free game collection`);
