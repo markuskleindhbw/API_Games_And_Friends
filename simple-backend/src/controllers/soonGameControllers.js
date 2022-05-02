@@ -36,14 +36,14 @@ export const addSoonGame = async(req, res) => {
 };
 
 export const editSoonGame = async(req, res) => {
-    await SoonGame.find((sg) => sg.id == req.params.id);
+    await SoonGame.findOneAndUpdate(req.params.id);
 
-    res.status(200).send(`Edited $ { soonGame.title } in soon available game collection `);
+    res.status(200).send(`Edited in soon available game collection `);
 };
 
 export const deleteSoonGame = async(req, res) => {
 
-    SoonGame.findByIdAndDelete(req.params.id);
+   await SoonGame.findByIdAndDelete(req.params.id);
     res.status(200).send(`Deleted in soon available game collection`);
 };
 

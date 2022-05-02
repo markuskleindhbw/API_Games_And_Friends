@@ -97,7 +97,7 @@ const swaggerDocs = {
                 },
             },
         },
-        "/freeGames/add": {
+        "freeGames/add": {
             post: {
                 tags: ["Free Games"],
                 summary: "Add a new free game",

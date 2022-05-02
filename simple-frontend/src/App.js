@@ -1,8 +1,6 @@
 import React from "react";
 import { fetchAllFreeGames } from "./RestClient.js";
 class App extends React.Component {
-    // constructor initializes component state data
-    // and binds methods
     constructor(props) {
         super(props);
         this.state = {
@@ -11,24 +9,23 @@ class App extends React.Component {
         this.fetchDisplayData = this.fetchDisplayData.bind(this);
     }
 
-    // requests and waits for data by calling RestClient's
-    // fetchAllFreeGames. as soon as the data is there it is set
-    // as a state
     async fetchDisplayData() {
         let data = await fetchAllFreeGames();
-        this.setState({ games: data }); 
+        this.setState({ games: data });
     }
 
     // this is displayed on the screen
     render() {
-        return ( <div>
-            <div id = "title" > Games and Friends </div>   
-            <button id="fetcher" onClick={this.fetchDisplayData}>Das ist ein Test</button>
-            <div className = "data" > { /* generates a div for every entry */ } {
-                this.state.games.map((freegame, key) => ( 
-                <div key = { key }> { freegame.title } by { freegame.publisher } </div>
-                ))
-            } </div> </div>
+        return (<div>
+            <div id="title" > Games and Friends </div>
+            <button id="fetcher" onClick={this.fetchDisplayData}>Check out the new free games!</button>
+            <div className="data" >
+                <div>course: title - publisher</div>
+                <br></br>
+                {this.state.games.map((freegame, key) => (
+                    <div key={key}> {freegame.title}: {freegame.publisher} </div>
+                ))}
+            </div> </div>
         );
     }
 }

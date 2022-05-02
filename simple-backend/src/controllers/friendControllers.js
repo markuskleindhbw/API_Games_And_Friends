@@ -29,9 +29,8 @@ export const addFriend = async(req, res) => {
 };
 
 export const deleteFriend = async(req, res) => {
-    
-     Friend.findByIdAndDelete(req.params.id);
-     res.status(200).send(`Deleted in friend collection`);
+    await Friend.findByIdAndDelete(req.params.id);
+    res.status(200).send(`Deleted in friend collection`);
 };
 // attached as second param in a route
 export const newFriendValidators = [

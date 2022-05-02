@@ -6,8 +6,8 @@ export const getFreeGames = async(req, res) => {
     const games = await FreeGame.find();
     res.status(200).send(games);
 };
-export const getFreeGameById = async(req, res) => {
-    let freeGame = await FreeGame.find((fg) => fg.id == req.params.id);
+export const getFreeGameById = async (req, res) => {
+    let freeGame = await FreeGame.findById(req.params.id);
     res.status(200).send(freeGame);
 };
 export const getFreeGameByTitle = async(req, res) => {
@@ -40,7 +40,8 @@ export const editFreeGame = async(req, res) => {
 
 export const deleteFreeGame = async(req, res) => {
     
-    FreeGame.findByIdAndDelete(req.params.id);
+export const deleteFreeGame = async (req, res) => {
+    await FreeGame.findByIdAndDelete(req.params.id);
     res.status(200).send(`Deleted in free game collection`);
 };
 
