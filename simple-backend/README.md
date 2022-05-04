@@ -19,12 +19,14 @@ Problem: Durch eine Vielzahl an Anfragen könnte das System überlasten und abst
 Lösung: Durch Anwendung einer Queue können Aufrufe nicht direkt an diesen übermittelt werden, sondern werden in einer Warteschlange zwischengespeichert.
 Durch diese Art von Speicherung kann der Ausfall des Services vermieden werden. Die Queue arbeitet im Prinzip wie ein Buffer der automatisch befüllt wird, bis die gewünschte Anzahl paralleler Requests erreicht wird.  
 
-Problem: Ein weiteres Problem könnten gleichzeitige Zugriffe zweier Personen auf das gleiche Dokument sein. Sollten beide Parteien in dieser Situation Änderungen am Dokument vornehmen, würde die Änderung der ersten Person durch die Änderung der zweiten Person überschrieben werden, ohne, dass die erste Person dies unmittelbar mitbekommt.
+Problem: Werden Daten von mehreren Benutzern bzw. Programmen zeitglich bearbeitet und geändert, kann es zu einem inkonsistenten Zustand der Daten kommen. Der Datenzugriff ist nicht synchronisiert.
 Lösung: Gelöst werden könnte dieses Problem, indem das passende Datenbank-Isolationslevel und Locks genutzt werden, die verhindern, dass an durch Zugriffe gesperrte Dokumente Änderungen vorgenommen werden können.
+
+Problem: Lese- und Schreibzugriffe auf den gesamten Datenbestand sind möglich.
+Lösung: Datenschutz kann - abhängig vom verwendeten Betriebssystem - durch Zugriffsrechte oder Verschlüsselung realisiert werden.
 
 ### Was ist abseits der reinen Programmierung für die Produktivsetzung des entwickelten Services zu beachten? Nenne mindestens zwei Aspekte und führe diese in ein paar Sätzen aus.
 
-Abseits der reinen Programmierung gilt Wartung, Testen, Planung und Durchführung zu beachten. Besonders zu beachten gilt, ob die Anbindung an das Frontend und die Datenbank funktioniert. 
-Durch GET, POST, PUT, DELETE Abfragen wäre eine Überprüfung möglich und somit wäre gewährleistet, dass eine Anbindung stattgefunden hat. 
+Neben der reinen Programmierung müssen auch Wartung, Test und Planung betrachtet werden. Besonders wichtig ist, dass die Verbindung zum Frontend und zur Datenbank einwandfrei funktioniert. Durch GET-, POST-, PUT-, DELETE-Abfragen kann die Überprüfung erfolgen, sodass sichergestellt ist, dass eine Verbindung aufgebaut wurde. 
 
-Ein weiterer Aspekt ist die Benutzeroberfläche (UI), da dies die einzige Berührungsstelle zwischen Anwender und Software ist. Daher ist auch die Gestaltung sorgfältig zu planen. Dies kann über ein Blatt Papier und Stift oder PowerPoint erfolgen. Bevor eine UI programmiert wird, sollte feststehen, wie dieser auszusehen hat. 
+Ein weiterer Aspekt ist die Benutzeroberfläche (UI), da dies der einzige Kontaktpunkt zwischen dem Benutzer und der Software ist. Daher ist auch das Design sorgfältig zu planen. Dies kann mit einem Blatt Papier und Stift oder PowerPoint erfolgen. Bevor eine UI programmiert wird, sollte feststehen, wie dieser auszusehen hat. 
