@@ -8,16 +8,17 @@ import {
     editFreeGame,
     deleteFreeGame,
     newFreeGameValidators,
+    EditFreeGameValidators,
 } from "../controllers/freeGameControllers.js";
 
 const router = express.Router();
 
 router.get("/", getFreeGames);
-router.get("/search", getFreeGameByTitle);
-router.get("/publisher", getFreeGameByPublisher);
-router.get("/:id", getFreeGameById);
-router.put(":id", newFreeGameValidators, editFreeGame);
+router.get("/title/:title", getFreeGameByTitle);
+router.get("/publisher/:publisher", getFreeGameByPublisher);
+router.get("/id/:id", getFreeGameById);
+router.put("/edit/:id", EditFreeGameValidators, editFreeGame);
 router.post("/add", newFreeGameValidators, addFreeGame);
-router.delete("/:id", deleteFreeGame);
+router.delete("/delete/:id", deleteFreeGame);
 
 export default router;

@@ -4,30 +4,30 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            games: [],
+            freegames: [],
         };
         this.fetchDisplayData = this.fetchDisplayData.bind(this);
     }
 
     async fetchDisplayData() {
         let data = await fetchAllFreeGames();
-        this.setState({ games: data });
+        this.setState({ freegames: data });
     }
-
-    // this is displayed on the screen
     render() {
         return (<div>
             <div id="title" > Games and Friends </div>
-            <button id="fetcher" onClick={this.fetchDisplayData}>Check out the new free games!</button>
+            <button id="fetcher" onClick={this.fetchDisplayData}>Check out what's free!</button>
             <div className="data" >
-                <div>course: title - publisher</div>
                 <br></br>
-                {this.state.games.map((freegame, key) => (
-                    <div key={key}> {freegame.title}: {freegame.publisher} </div>
+                {this.state.freegames.map((freegame, key) => (
+                    <div key={key}>
+                        {freegame.title}: {freegame.publisher} - {freegame.tag} - {freegame.fsk} - {freegame.description} </div>
                 ))}
+                <br></br>
             </div> </div>
         );
     }
+
 }
 
 export default App;

@@ -9,19 +9,19 @@ const swaggerDocs = {
             url: "https://opensource.org/licenses/MIT",
         },
     },
-    host: "localhost:4000",
+    host: "localhost:4000/",
     basePath: "/",
     tags: [{
             name: "Free Games",
-            description: "free games in the database",
+            description: "Free games in the database",
         },
         {
-            name: "Soon available games",
-            description: "soon available games in the database",
+            name: "Soon available Games",
+            description: "Soon available games in the database",
         },
         {
             name: "Friends",
-            description: "friends in the database",
+            description: "Friends in the database",
         },
     ],
     consumes: ["application/json"],
@@ -41,7 +41,7 @@ const swaggerDocs = {
                 },
             },
         },
-        "freeGames/{id}": {
+        "freeGames/id/{id}": {
             get: {
                 tags: ["Free Games"],
                 summary: "Get a free game by id",
@@ -69,7 +69,7 @@ const swaggerDocs = {
                 },
             },
         },
-        "freeGames/search": {
+        "freeGames/title/{title}": {
             get: {
                 tags: ["Free Games"],
                 summary: "Get a free game by title",
@@ -77,6 +77,34 @@ const swaggerDocs = {
                     name: "title",
                     in: "path",
                     description: "Title of the free game searched for",
+                    schema: {
+                        $ref: "#/definitions/FreeGames",
+                    },
+                }, ],
+                responses: {
+                    200: {
+                        description: "OK",
+                        schema: {
+                            $ref: "#/definitions/FreeGames",
+                        },
+                    },
+                    404: {
+                        description: "Not Found",
+                        schema: {
+                            $ref: "#/definitions/FreeGames",
+                        },
+                    },
+                },
+            },
+        },
+        "freeGames/publisher/{publisher}": {
+            get: {
+                tags: ["Free Games"],
+                summary: "Get a free game by publisher",
+                parameters: [{
+                    name: "publisher",
+                    in: "path",
+                    description: "Publisher of the free game searched for",
                     schema: {
                         $ref: "#/definitions/FreeGames",
                     },
@@ -125,7 +153,7 @@ const swaggerDocs = {
                 },
             },
         },
-        "freeGames/put": {
+        "freeGames/edit/{id}": {
             post: {
                 tags: ["Free Games"],
                 summary: "Edit a free game",
@@ -159,9 +187,9 @@ const swaggerDocs = {
                 },
             },
         },
-        "freeGame/delete": {
+        "freeGames/delete/{id}": {
             delete: {
-                tags: ["Free Game"],
+                tags: ["Free Games"],
                 summary: "Delete a free game by id",
                 parameters: [{
                     name: "id",
@@ -189,7 +217,7 @@ const swaggerDocs = {
         },
         "soonAvailableGame/": {
             get: {
-                tags: ["Soon Available Games"],
+                tags: ["Soon available Games"],
                 summary: "Get all soon avaiable games in the system",
                 responses: {
                     200: {
@@ -201,9 +229,9 @@ const swaggerDocs = {
                 },
             },
         },
-        "soonAvailableGame/{id}": {
+        "soonAvailableGame/id/{id}": {
             get: {
-                tags: ["Soon Available Games"],
+                tags: ["Soon available Games"],
                 summary: "Get a soon available game by id",
                 parameters: [{
                     name: "id",
@@ -229,9 +257,9 @@ const swaggerDocs = {
                 },
             },
         },
-        "soonAvailableGame/search": {
+        "soonAvailableGame/title/{title}": {
             get: {
-                tags: ["Soon Available Games"],
+                tags: ["Soon available Games"],
                 summary: "Get a specific soon available game by title",
                 parameters: [{
                     name: "title",
@@ -257,9 +285,37 @@ const swaggerDocs = {
                 },
             },
         },
+        "soonAvailableGame/publisher/{publisher}": {
+            get: {
+                tags: ["Soon available Games"],
+                summary: "Get a specific soon available game by publisher",
+                parameters: [{
+                    name: "publisher",
+                    in: "path",
+                    description: "Publisher of the soon available game searched for",
+                    schema: {
+                        $ref: "#/definitions/SoonAvailableGames",
+                    },
+                }, ],
+                responses: {
+                    200: {
+                        description: "OK",
+                        schema: {
+                            $ref: "#/definitions/SoonAvailableGames",
+                        },
+                    },
+                    404: {
+                        description: "Not Found",
+                        schema: {
+                            $ref: "#/definitions/SoonAvailableGames",
+                        },
+                    },
+                },
+            },
+        },
         "soonAvailableGame/add": {
             post: {
-                tags: ["Soon Available Games"],
+                tags: ["Soon available Games"],
                 summary: "Add a new soon available game",
                 parameters: [{
                     name: "soon available game",
@@ -285,9 +341,9 @@ const swaggerDocs = {
                 },
             },
         },
-        "soonAvailableGame/put": {
+        "soonAvailableGame/edit/{id}": {
             post: {
-                tags: ["Soon Available Games"],
+                tags: ["Soon available Games"],
                 summary: "Edit a soon available game",
                 parameters: [{
                     name: "soon available game",
@@ -319,29 +375,29 @@ const swaggerDocs = {
                 },
             },
         },
-        "soonAvailableGame/delete": {
+        "soonAvailableGame/delete/{id}": {
             delete: {
-                tags: ["Soon Available Games"],
+                tags: ["Soon available Games"],
                 summary: "Delete a specific soon available game by id",
                 parameters: [{
                     name: "id",
                     in: "path",
                     description: "Id of the soon available game to be deleted",
                     schema: {
-                        $ref: "#/definitions/SoonAvailableGamse",
+                        $ref: "#/definitions/SoonAvailableGames",
                     },
                 }, ],
                 responses: {
                     200: {
                         description: "OK",
                         schema: {
-                            $ref: "#/definitions/SoonAvailableGamse",
+                            $ref: "#/definitions/SoonAvailableGames",
                         },
                     },
                     404: {
                         description: "Not Found",
                         schema: {
-                            $ref: "#/definitions/SoonAvailableGamse",
+                            $ref: "#/definitions/SoonAvailableGames",
                         },
                     },
                 },
@@ -361,7 +417,7 @@ const swaggerDocs = {
                 },
             },
         },
-        "friends/{id}": {
+        "friends/id/{id}": {
             get: {
                 tags: ["Friends"],
                 summary: "Get a specific friend by id",
@@ -389,7 +445,7 @@ const swaggerDocs = {
                 },
             },
         },
-        "friends/search": {
+        "friends/nickname/{nickname}": {
             get: {
                 tags: ["Friends"],
                 summary: "Get a specific friends by nickname",
@@ -445,7 +501,7 @@ const swaggerDocs = {
                 },
             },
         },
-        "friends/put": {
+        "friends/edit/{id}": {
             post: {
                 tags: ["Friends"],
                 summary: "Edit a friends",
@@ -479,7 +535,7 @@ const swaggerDocs = {
                 },
             },
         },
-        "friends/delete": {
+        "friends/delete/{id}": {
             delete: {
                 tags: ["Friends"],
                 summary: "Delete a specific friend by id",
@@ -522,7 +578,16 @@ const swaggerDocs = {
                 },
                 publisher: {
                     type: "string",
-                }
+                },
+                fsk: {
+                    type: "number",
+                },
+                tags: {
+                    type: "string",
+                },
+                description: {
+                    type: "string",
+                },
             },
         },
         SoonAvailableGames: {
@@ -538,9 +603,18 @@ const swaggerDocs = {
                 publisher: {
                     type: "string",
                 },
+                fsk: {
+                    type: "number",
+                },
+                tag: {
+                    type: "string",
+                },
+                description: {
+                    type: "string",
+                },
             },
         },
-        friends: {
+        Friends: {
             required: ["nickname"],
             properties: {
                 _id: {
@@ -550,6 +624,18 @@ const swaggerDocs = {
                 nickname: {
                     type: "string",
                 },
+                onlineStatus: {
+                    type: "string",
+                },
+                description: {
+                    type: "string",
+                },
+                age: {
+                    type: "number",
+                },
+                gender: {
+                    type: "string",
+                }
             },
         },
 
