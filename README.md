@@ -10,7 +10,7 @@
 # Collections:
 ##  ./FreeGame
 
-- GET /freegames
+- GET /freegames/
 --> Get all free game records from the system
 - GET /freegames/:id
 --> Get a specific free game record by id
