@@ -10,19 +10,19 @@
 # Collections:
 ##  ./FreeGame
 
-- GET /freeGames
+- GET /freegames
 --> Get all free game records from the system
-- GET /freeGames/:id
+- GET /freegames/:id
 --> Get a specific free game record by id
-- GET /freeGames/title/:title
+- GET /freegames/title/:title
 --> Get a specific free game record by title
-- GET /freeGames/publisher/:publisher
+- GET /freegames/publisher/:publisher
 --> Get a specific free game record by publisher
-- PUT /freeGames/update/:id
+- PUT /freegames/update/:id
 --> Update a specific free game record by id
-- POST /freeGames/add
+- POST /freegames/add
 --> Add a new free game record in the system
-- DELETE /freeGames/delete/:id
+- DELETE /freegames/delete/:id
 --> Delete a free game record by id
 ##  ./Friends
 - GET /friends/
@@ -38,25 +38,18 @@
 - DELETE /friends/delete/:id
 --> Delete a friend record by id
 ##  ./SoonAvailableGame
-- GET /soonAvailableGames
+- GET /soongames
 --> Get all soon available game records from the system
-- GET /soonAvailableGames/:id
+- GET /soongames/:id
 --> Get a specific soon available game record by id
-- GET /soonAvailableGames/title/:title
+- GET /soongames/title/:title
 --> Get a specific soon available game record by title
-- GET /soonAvailableGames/publisher/:publisher
+- GET /soongames/publisher/:publisher
 --> Get a specific soon available game record by publisher
-- PUT /soonAvailableGames/update/:id
+- PUT /soongames/update/:id
 --> Update a specific soon available game record by id
-- POST /soonAvailableGames/add
+- POST /soongames/add
 --> Add a new soon available game record in the system
-- DELETE /soonAvailableGames/delete/:id
+- DELETE /soongames/delete/:id
 --> Delete a soon available game record by id--> Get a specific friend record by id
-- GET /friends/nickname/:nickname
---> Get a specific friend record by nickname
-- PUT /friends/edit/:id
---> Update a specific friend records by id
-- POST /friends/add
---> Add a new friend record in the system
-- DELETE /friends/delete/:id
---> Delete a friend record by id
+
